@@ -20,8 +20,9 @@ import retrofit2.Response;
 public class AddProductActivity extends AppCompatActivity {
     private EditText etCode, etName, etAuthor, etDescription, etImage, etPrice;
     private Button btnAddProduct;
-    private String code, name, author, priceStr, description, image;
+    private String code, name, author, priceStr, description;
     private  int price;
+    private String image = "https://i.postimg.cc/xTzmQrDR/0-i-Bvb3-FQRn-C4-Xdyv4.jpg";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

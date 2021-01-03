@@ -3,6 +3,7 @@
     package="com.example.bookhub">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -12,11 +13,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.DetailProductActivity"
+            android:name=".activity.UpdateProductActivity"
             android:parentActivityName=".activity.MainActivity"></activity>
         <activity
+            android:name=".activity.DetailProductActivity"
+            android:parentActivityName=".activity.MainActivity" />
+        <activity
             android:name=".activity.AddProductActivity"
-            android:parentActivityName=".activity.MainActivity"></activity>
+            android:parentActivityName=".activity.MainActivity" />
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

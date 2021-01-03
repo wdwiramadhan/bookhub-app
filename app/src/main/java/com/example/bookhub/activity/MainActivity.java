@@ -5,17 +5,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.bookhub.R;
-import com.example.bookhub.api.APIRequestModel;
+import com.example.bookhub.api.APIRequestProduct;
 import com.example.bookhub.adapter.AdapterProduct;
 import com.example.bookhub.api.RetroServer;
 import com.example.bookhub.model.ProductModel;
-import com.example.bookhub.model.ResponseProductModel;
+import com.example.bookhub.model.ResponseProductsModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
@@ -52,6 +53,13 @@ public class MainActivity extends AppCompatActivity {
                 srlProduct.setRefreshing(false);
             }
         });
+
+        fabAddProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, AddProductActivity.class));
+            }
+        });
     }
 
     @Override
@@ -62,11 +70,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void retrieveProduct(){
         pbProduct.setVisibility(View.VISIBLE);
-        APIRequestModel ardProduct = RetroServer.connectRetro().create(APIRequestModel.class);
-        Call<ResponseProductModel> showProduct = ardProduct.ardRetrieveProduct();
-        showProduct.enqueue(new Callback<ResponseProductModel>() {
+        APIRequestProduct ardProduct = RetroServer.connectRetro().create(APIRequestProduct.class);
+        Call<ResponseProductsModel> showProduct = ardProduct.ardRetrieveProduct();
+        showProduct.enqueue(new Callback<ResponseProductsModel>() {
             @Override
-            public void onResponse(Call<ResponseProductModel> call, Response<ResponseProductModel> response) {
+            public void onResponse(Call<ResponseProductsModel> call, Response<ResponseProductsModel> response) {
                 listProduct = response.body().getData();
                 adProduct = new AdapterProduct(MainActivity.this, listProduct);
                 rvProduct.setAdapter(adProduct);
@@ -75,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ResponseProductModel> call, Throwable t) {
+            public void onFailure(Call<ResponseProductsModel> call, Throwable t) {
                 pbProduct.setVisibility(View.INVISIBLE);
                 Toast.makeText(MainActivity.this, "Request Failed", Toast.LENGTH_SHORT).show();
             }

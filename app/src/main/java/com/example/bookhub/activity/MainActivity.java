@@ -11,6 +11,9 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.cloudinary.android.MediaManager;
+import com.cloudinary.android.policy.GlobalUploadPolicy;
+import com.cloudinary.android.policy.UploadPolicy;
 import com.example.bookhub.R;
 import com.example.bookhub.api.APIRequestProduct;
 import com.example.bookhub.adapter.AdapterProduct;
@@ -19,7 +22,9 @@ import com.example.bookhub.model.ProductModel;
 import com.example.bookhub.model.ResponseProductsModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -38,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         rvProduct = findViewById(R.id.rv_products);
         srlProduct = findViewById(R.id.srl_product);
         pbProduct = findViewById(R.id.pb_product);

@@ -84,7 +84,7 @@ public class DetailProductActivity extends AppCompatActivity {
                 Picasso.get().load(image).into(ivImageDetail);
                 tvNameDetail.setText(String.valueOf(name));
                 tvAuthorDetail.setText(String.valueOf(author));
-                tvPriceDetail.setText(String.valueOf(price));
+                tvPriceDetail.setText("Rp. "+String.valueOf(price));
                 tvDescriptionDetail.setText(String.valueOf(description));
             }
 

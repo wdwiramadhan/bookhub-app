@@ -43,7 +43,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.HolderPr
         holder.tvId.setText(String.valueOf(pm.getId()));
         holder.tvName.setText(pm.getName());
         holder.tvAuthor.setText(pm.getAuthor());
-        holder.tvPrice.setText(String.valueOf(pm.getPrice()));
+        holder.tvPrice.setText("Rp. "+String.valueOf(pm.getPrice()));
         Picasso.get().load(pm.getImage()).into(holder.ivImage);
     }
 

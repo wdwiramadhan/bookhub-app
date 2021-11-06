@@ -53,9 +53,9 @@ public class AddProductActivity extends AppCompatActivity {
     Map config = new HashMap();
 
     private void configCloudinary() {
-        config.put("cloud_name", "bidik-kampus");
-        config.put("api_key", "481532558188319");
-        config.put("api_secret", "XSGns0ZvIUOzNlgEQyRkEwiF9hw");
+        config.put("cloud_name", "");
+        config.put("api_key", "");
+        config.put("api_secret", "");
         MediaManager.init(AddProductActivity.this, config);
     }
 
